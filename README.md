@@ -1,21 +1,48 @@
-# indoor_pos
+# INDOOR LOCALIZATION AND NAVIGATION IN SMART BUILDINGS
 
-# Problem Statement
+# ABSTRACT 
+
+Buildings like offices, schools, factories or hospitals all over the world are becoming larger, whether on the basis of area or number of floors. Due to this increase in size and number of inhabitants residing in these buildings, they by themselves contribute to form a microcosm. These mi crocosms are required to be monitored to provide a safe and smart living space. Through a network of wireless nodes connected together by IoT techniques, real-time monitoring of the location of these inhabitants in these microcosms would be possible. 
+
+GPS lacks the ability to provide accurate indoor position information. Through the use of the multi-node sensor network and measuring the RSSI(Received Signal strength indicator) value of a wireless signal emit ter like a smartphone or RF beacon, localization, and navigation ser vices inside a building can be provided. Through indoor localizations, a plethora of intelligent services can be deployed like indoor navigation for new places, movement monitoring in homes to observe health routines, asset tracking in factory floors, intelligent space allotment in shopping centers based on footfall and many more.
+
+
+# PROBLEM STATEMENT
 
 Infrastructure in the modern world is expanding in size, footfall and intelligence. With trends like Industry 4.0 and Smart City development and population growth in urban cities. These large structures like office complexes, schools and shopping centers they by themselves become micro-environments. For intelligent use of space and management of crowd and convenience for the denizen services like indoor navigation and localisation are required.
 
 
-# Literature Review 
+# OBJECTIVES OF THE PROJECT
 
-The concept of smart cities are rapidly being considered by the government as the future of urbanization. The use of Internet of things will drive to the realization of these smart cities[1]. This will in turn lead to the advent of smart offices, smart shopping centers, smart campuses etc. As these infrastructures get smarter and larger, they by them self start to constitute a micro-environment[2]. There is an increasing trend and demand to know the location and movement pattern of denizens in these micro-environment for better productivity, space allotment and easy navigation. Building a system based on IoT will be the way forward to design a smart building with smart location awareness, navigation and dynamic space allotment[3]. As GPS is Line of Sight Dependent(LoS) and GPS only provides a maximum accuracy up to 5 meters, this technology is not suitable for indoor positioning[4]. There is now widespread research in using R.F signals like WiFi, Bluetooth, LoRaWAN or Zigbee to find indoor position. The Received Signal Strength Indication(RSSI) of these signals can determine the distance between the user and scanner of these signals[5]. There inaccuracies that arise from this method due to occlusions like wall and doors which will signal loss and attenuation thus providing inaccurate distance estimates[6]. These errors can be overcome by using algorithms like trilateration and error suppression like methods like kalman filter and k-nearest neighbour[7]. Thus providing an accurate framework to predict indoor location of the user.
+The project aims to create a Multi-Node Network that can be scalable to be retrofitted into any architecture of the infrastructure that is actively aware of the registered user’s location to provide intelligent services like position information and navigation in places where GPS may not provide unsatisfactory results. 
 
-# References
+# OPERATION METHODOLOGY
 
-[1]	 a Zanella, N. Bui,  a Castellani, L. Vangelista, and M. Zorzi, “Internet of Things for Smart Cities,” IEEE Internet Things J., vol. 1, no. 1, pp. 22–32, 2014.
-[2]	A. Gaur, B. Scotney, G. Parr, and S. McClean, “Smart city architecture and its applications based on IoT,” Procedia Comput. Sci., vol. 52, no. 1, pp. 1089–1094, 2015.
-[3] Z. Turgut, G. Zeynep, G. Aydin, and A. Sertbas, “Indoor Localization Techniques for Smart Building Environment,” Procedia - Procedia Comput. Sci., vol. 83, no. Ant, pp. 1176–1181, 2016.
-[4] S. Mazuelas et al., “Robust Indoor Positioning Provided by Real-Time RSSI Values in Unmodified WLAN Networks,” no. November, 2009.
-[5] S. Sadowski and S. Member, “RSSI-Based Indoor Localization With the Internet of Things,” IEEE Access, vol. 6, pp. 30149–30161, 2018.
-[6] T. Ozyer, “IEEE 802 . 11 WLAN Based Real Time Indoor Positioning : Literature Survey and Experimental Investigations,” vol. 34, pp. 157–164, 2014.
-[7] P. Palaskar, R. Palkar, and M. Tawari, “Wi-Fi Indoor Positioning System Based on RSSI Measurements from Wi-Fi Access Points –A Tri-lateration Approach,” vol. 5, no. 4, pp. 1234–1238, 2014.
+The multi-node RSSI scanners detect the registered user's smartphone in the vicinity and obtain the RSSI value from the transmitted WiFi signal. The RSSI values are indexes and timestamped and sent as a JSON data payload to AWS IoT Cloud service through MQTT protocol. 
+MQTT or Message Query Transport Telemetry protocol is a lightweight protocol used for IoT applications as the data payload is small and does not require large data buffers and IoT applications desire a protocol which can provide low latency which MQTT protocol does. 
+
+AWS IoT Cloud service aides in setting up a pipeline to store the data payload in a NoSQL database where we can further use the data to process in algorithms that provide us with location algorithm. The data is appropriately stored to separate table and columns according to the scanner node's floor and location. 
+This data is then accessed by Serverless event-driven computation platform called AWS Lambda where the Localisation and code for VUI exists. Here we use a basic triangulation algorithm using three nodes at a time to find the location of the user. 
+
+Our project uses a Voice User Interface(VUI) to enable users to interact with service to find their current location or navigate to another room. This VUI is powered by Amazon's Alexa where an application called My Locator is run to access location data to be relayed through Alexa.
+
+
+
+# REFERENCES 
+
+1. Cant, V. and Calveras, A. (2017). “with Channel Diversity , Weighted Trilateration and. 
+2. Gaur, A., Scotney, B., Parr, G., and McClean, S. (2015). “Smart city architecture and its applications based on IoT.” Procedia Computer Science, 52(1), 1089–1094. 
+3. Jrger, T., Höflinger, F., Gamm, G. U., and Reindl, L. M. “Wireless distance estimation with low-power standard components in wireless sensor nodes. 
+4. Khullar, R. and Dong, Z. (2017). “Indoor Localization Framework with WiFi Finger printing. 
+5. Liu, Y. and Wang, Y. (2012). “A Position System of Multi-APs Based on RSSI.” 1565– 1568. 
+6. Mahajan, A. (2012). “Wi-Fi Localization using RSSI in Indoor Environment via a smartphone.” 1(2). 
+7. Mazuelas, S., Bahillo, A., Lorenzo, R. M., Fernandez, P., Lago, F. A., Garcia, E., Blas, J., and Abril, E. J. (2009). “Robust Indoor Positioning Provided by Real-Time RSSI Values in Unmodified WLAN Networks.” (November). 
+8. Ozyer, T. (2014). “IEEE 802 . 11 WLAN Based Real Time Indoor Positioning : Liter ature Survey and Experimental Investigations.” 34, 157–164. 
+9. Palaskar, P., Palkar, R., and Tawari, M. (2014). “Wi-Fi Indoor Positioning System Based on RSSI Measurements from Wi-Fi Access Points ÃsA Tri-lateration Approach.” 5(4), ´ 1234–1238. 
+10. Sadowski, S. and Member, S. (2018). “RSSI-Based Indoor Localization With the Inter net of Things.” IEEE Access, 6, 30149–30161. 
+11. Shang, F., Su, W., Wang, Q., Gao, H., and Fu, Q. (2014). “A Location Estimation Algorithm Based on RSSI Vector Similarity Degree.” 2014. 
+12. Tembekar, S. and Saxena, P. A. (2013). “Gathering Information from Wireless Sensor Network to Cloud and Accessing it Using Smart Phone Application.” 2(12), 2712–2718. 
+13. Turgut, Z., Zeynep, G., Aydin, G., and Sertbas, A. (2016). “Indoor Localization Techniques for Smart Building Environment.” Procedia - Procedia Computer Science, 83(Ant), 1176–1181. 
+14. Yang, J., Wang, Z., and Zhang, X. (2015). “An iBeacon-based Indoor Positioning Systems for Hospitals.” 9(7), 161–168. 
+15. Zanella, a., Bui, N., Castellani, a., Vangelista, L., and Zorzi, M. (2014). “Internet of Things for Smart Cities.” IEEE Internet of Things Journal, 1(1), 22–32. 
 
