@@ -2,9 +2,9 @@
 
 # ABSTRACT 
 
-Buildings like offices, schools, factories or hospitals all over the world are becoming larger, whether on the basis of area or number of floors. Due to this increase in size and number of inhabitants residing in these buildings, they by themselves contribute to form a microcosm. These mi crocosms are required to be monitored to provide a safe and smart living space. Through a network of wireless nodes connected together by IoT techniques, real-time monitoring of the location of these inhabitants in these microcosms would be possible. 
+Buildings like offices, schools, factories or hospitals all over the world are becoming larger, whether on the basis of area or number of floors. Due to this increase in size and number of inhabitants residing in these buildings, they by themselves contribute to form a microcosm. These microcosms are required to be monitored to provide a safe and smart living space. Through a network of wireless nodes connected together by IoT techniques, real-time monitoring of the location of these inhabitants in these microcosms would be possible. 
 
-GPS lacks the ability to provide accurate indoor position information. Through the use of the multi-node sensor network and measuring the RSSI(Received Signal strength indicator) value of a wireless signal emit ter like a smartphone or RF beacon, localization, and navigation ser vices inside a building can be provided. Through indoor localizations, a plethora of intelligent services can be deployed like indoor navigation for new places, movement monitoring in homes to observe health routines, asset tracking in factory floors, intelligent space allotment in shopping centers based on footfall and many more.
+GPS lacks the ability to provide accurate indoor position information. Through the use of the multi-node sensor network and measuring the RSSI(Received Signal strength indicator) value of a wireless signal emitter like a smartphone or RF beacon, localization, and navigation services inside a building can be provided. Through indoor localizations, a plethora of intelligent services can be deployed like indoor navigation for new places, movement monitoring in homes to observe health routines, asset tracking in factory floors, intelligent space allotment in shopping centers based on footfall and many more.
 
 
 # PROBLEM STATEMENT
