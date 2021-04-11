@@ -9,7 +9,7 @@ GPS lacks the ability to provide accurate indoor position information. Through t
 
 # PROBLEM STATEMENT
 
-Infrastructure in the modern world is expanding in size, footfall and intelligence. With trends like Industry 4.0 and Smart City development and population growth in urban cities. These large structures like office complexes, schools and shopping centers they by themselves become micro-environments. For intelligent use of space and management of crowd and convenience for the denizen services like indoor navigation and localisation are required.
+Infrastructure in the modern world is expanding in size, footfall and intelligence. With trends like Industry 4.0 and Smart City development and population growth in urban cities. These large structures like office complexes, schools and shopping centers they by themselves become micro-environments. For intelligent use of space and management of crowd and convenience for the denizen services like indoor navigation and localization are required.
 
 
 # OBJECTIVES OF THE PROJECT
